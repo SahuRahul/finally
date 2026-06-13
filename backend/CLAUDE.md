@@ -4,7 +4,7 @@
 
 ```bash
 cd backend
-uv sync --extra dev   # Install all dependencies including test/lint tools
+uv sync   # Install all dependencies (the dev dependency-group is synced by default)
 ```
 
 ## Market Data API
@@ -47,9 +47,9 @@ Default tickers: AAPL, GOOGL, MSFT, AMZN, TSLA, NVDA, META, JPM, V, NFLX. Seed p
 ## Running Tests
 
 ```bash
-uv run --extra dev pytest -v              # All tests
-uv run --extra dev pytest --cov=app       # With coverage
-uv run --extra dev ruff check app/ tests/ # Lint
+uv run pytest -v              # All tests
+uv run pytest --cov=app       # With coverage
+uv run ruff check app/ tests/ # Lint
 ```
 
 ## Demo
