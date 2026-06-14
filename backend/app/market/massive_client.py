@@ -37,6 +37,7 @@ class MassiveDataSource(MarketDataSource):
         self._tickers: list[str] = []
         self._task: asyncio.Task | None = None
         self._client: RESTClient | None = None
+        self._consecutive_failures: int = 0
 
     async def start(self, tickers: list[str]) -> None:
         self._client = RESTClient(api_key=self._api_key)
@@ -64,6 +65,9 @@ class MassiveDataSource(MarketDataSource):
         logger.info("Massive poller stopped")
 
     async def add_ticker(self, ticker: str) -> None:
+        # The new ticker has no price until the next poll cycle (up to
+        # poll_interval seconds later). We intentionally do not fetch it
+        # immediately to conserve the API rate-limit budget.
         ticker = ticker.upper().strip()
         if ticker not in self._tickers:
             self._tickers.append(ticker)
@@ -81,9 +85,15 @@ class MassiveDataSource(MarketDataSource):
     # --- Internal ---
 
     async def _poll_loop(self) -> None:
-        """Poll on interval. First poll already happened in start()."""
+        """Poll on interval. First poll already happened in start().
+
+        On consecutive failures, back off exponentially (capped) so a sustained
+        error such as a 429 rate-limit does not keep hammering the API at the
+        base interval.
+        """
         while True:
-            await asyncio.sleep(self._interval)
+            delay = self._interval * (2 ** min(self._consecutive_failures, 4))
+            await asyncio.sleep(delay)
             await self._poll_once()
 
     async def _poll_once(self) -> None:
@@ -93,8 +103,10 @@ class MassiveDataSource(MarketDataSource):
 
         try:
             # The Massive RESTClient is synchronous — run in a thread to
-            # avoid blocking the event loop.
-            snapshots = await asyncio.to_thread(self._fetch_snapshots)
+            # avoid blocking the event loop. Pass a copy of the ticker list so
+            # concurrent add/remove cannot mutate it mid-request.
+            snapshots = await asyncio.to_thread(self._fetch_snapshots, list(self._tickers))
+            self._consecutive_failures = 0
             processed = 0
             for snap in snapshots:
                 try:
@@ -116,13 +128,18 @@ class MassiveDataSource(MarketDataSource):
             logger.debug("Massive poll: updated %d/%d tickers", processed, len(self._tickers))
 
         except Exception as e:
-            logger.error("Massive poll failed: %s", e)
-            # Don't re-raise — the loop will retry on the next interval.
+            self._consecutive_failures += 1
+            logger.error("Massive poll failed (%d in a row): %s", self._consecutive_failures, e)
+            # Don't re-raise — the loop will retry with backoff on the next cycle.
             # Common failures: 401 (bad key), 429 (rate limit), network errors.
 
-    def _fetch_snapshots(self) -> list:
-        """Synchronous call to the Massive REST API. Runs in a thread."""
+    def _fetch_snapshots(self, tickers: list[str]) -> list:
+        """Synchronous call to the Massive REST API. Runs in a thread.
+
+        Receives a snapshot copy of the ticker list so concurrent
+        add/remove on the event loop cannot mutate it mid-request.
+        """
         return self._client.get_snapshot_all(
             market_type=SnapshotMarketType.STOCKS,
-            tickers=self._tickers,
+            tickers=tickers,
         )
