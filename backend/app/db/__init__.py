@@ -1,0 +1,53 @@
+"""FinAlly database layer: connection, lazy init, and data access."""
+
+from .connection import (
+    DEFAULT_CASH,
+    DEFAULT_USER_ID,
+    DEFAULT_WATCHLIST,
+    get_connection,
+    init_db,
+    new_id,
+    now_iso,
+)
+from .repository import (
+    add_chat_message,
+    add_watchlist,
+    delete_position,
+    get_chat_messages,
+    get_position,
+    get_positions,
+    get_profile,
+    get_snapshots,
+    get_trades,
+    get_watchlist,
+    record_snapshot,
+    record_trade,
+    remove_watchlist,
+    update_cash,
+    upsert_position,
+)
+
+__all__ = [
+    "DEFAULT_CASH",
+    "DEFAULT_USER_ID",
+    "DEFAULT_WATCHLIST",
+    "get_connection",
+    "init_db",
+    "new_id",
+    "now_iso",
+    "get_profile",
+    "update_cash",
+    "get_watchlist",
+    "add_watchlist",
+    "remove_watchlist",
+    "get_positions",
+    "get_position",
+    "upsert_position",
+    "delete_position",
+    "record_trade",
+    "get_trades",
+    "record_snapshot",
+    "get_snapshots",
+    "add_chat_message",
+    "get_chat_messages",
+]
