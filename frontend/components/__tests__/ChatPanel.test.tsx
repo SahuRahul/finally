@@ -42,9 +42,9 @@ describe("ChatPanel", () => {
     render(<ChatPanel onSend={onSend} />);
     await userEvent.type(screen.getByTestId("chat-input"), "buy 1000 aapl");
     await userEvent.click(screen.getByTestId("chat-send-btn"));
-    expect(await screen.findByTestId("chat-action")).toHaveTextContent(
-      "BUY 1000 AAPL failed: Insufficient cash",
-    );
+    const tile = await screen.findByTestId("chat-action");
+    expect(tile).toHaveTextContent("BUY 1000 AAPL failed: Insufficient cash");
+    expect(tile).toHaveAttribute("data-status", "error");
   });
 
   it("shows an error reply when the request fails", async () => {

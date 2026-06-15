@@ -80,7 +80,7 @@ export function Watchlist({
                 >
                   <td className="px-3 py-1.5 font-mono font-semibold">{item.ticker}</td>
                   <td className="px-2 py-1.5 text-right">
-                    <PriceCell price={price} />
+                    <PriceCell price={price} testId="price" />
                   </td>
                   <td className={`px-2 py-1.5 text-right font-mono text-xs ${pnlClass(changePct)}`}>
                     {pct(changePct)}

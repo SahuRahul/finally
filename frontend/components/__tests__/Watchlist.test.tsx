@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Watchlist } from "@/components/Watchlist";
 import type { PriceMap, WatchlistItem } from "@/lib/types";
@@ -43,6 +43,7 @@ describe("Watchlist", () => {
     const row = screen.getByTestId("watchlist-row-AAPL");
     expect(row).toHaveTextContent("AAPL");
     expect(row).toHaveTextContent("$192.50");
+    expect(within(row).getByTestId("price")).toHaveTextContent("$192.50");
   });
 
   it("selects a ticker on row click", async () => {

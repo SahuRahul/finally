@@ -124,6 +124,8 @@ export function ChatPanel({
                   <div
                     key={j}
                     data-testid="chat-action"
+                    data-status={a.status}
+                    data-type={a.type}
                     className={`rounded border border-border bg-background px-2 py-1 text-[11px] ${actionClass(a)}`}
                   >
                     {actionLabel(a)}
