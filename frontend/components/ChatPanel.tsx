@@ -1,22 +1,36 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { ChatResponse, ChatTrade, ChatWatchlistChange } from "@/lib/types";
-import { qty } from "@/lib/format";
+import type { ChatAction, ChatResponse } from "@/lib/types";
+import { qty, usd } from "@/lib/format";
 
 interface ChatMessage {
   role: "user" | "assistant";
   content: string;
-  trades?: ChatTrade[];
-  watchlistChanges?: ChatWatchlistChange[];
+  actions?: ChatAction[];
 }
 
-function tradeLabel(t: ChatTrade): string {
-  return `${t.side.toUpperCase()} ${qty(t.quantity)} ${t.ticker}`;
+/** Human-readable label for an executed action result. */
+function actionLabel(a: ChatAction): string {
+  if (a.type === "trade") {
+    if (a.status === "error") {
+      return `${a.side.toUpperCase()} ${qty(a.quantity)} ${a.ticker} failed: ${a.error ?? "error"}`;
+    }
+    const verb = a.side === "buy" ? "Bought" : "Sold";
+    const at = a.price !== undefined ? ` @ ${usd(a.price)}` : "";
+    return `${verb} ${qty(a.quantity)} ${a.ticker}${at}`;
+  }
+  if (a.status === "noop") {
+    return `${a.ticker} already ${a.action === "add" ? "on" : "off"} watchlist`;
+  }
+  return `${a.action === "add" ? "Added" : "Removed"} ${a.ticker}`;
 }
 
-function watchLabel(c: ChatWatchlistChange): string {
-  return `${c.action === "add" ? "Added" : "Removed"} ${c.ticker}`;
+/** Tile color: red for failures, green for trades, blue for watchlist. */
+function actionClass(a: ChatAction): string {
+  if (a.status === "error") return "text-down";
+  if (a.type === "watchlist") return "text-blue";
+  return "text-up";
 }
 
 /** Collapsible AI chat sidebar with inline trade/watchlist action confirmations. */
@@ -49,8 +63,7 @@ export function ChatPanel({
         {
           role: "assistant",
           content: res.message,
-          trades: res.trades,
-          watchlistChanges: res.watchlist_changes,
+          actions: res.actions,
         },
       ]);
     } catch (e) {
@@ -105,24 +118,15 @@ export function ChatPanel({
             >
               {m.content}
             </div>
-            {(m.trades?.length || m.watchlistChanges?.length) ? (
+            {m.actions?.length ? (
               <div className="mt-1 space-y-1">
-                {m.trades?.map((t, j) => (
+                {m.actions.map((a, j) => (
                   <div
-                    key={`t${j}`}
+                    key={j}
                     data-testid="chat-action"
-                    className="rounded border border-border bg-background px-2 py-1 text-[11px] text-up"
+                    className={`rounded border border-border bg-background px-2 py-1 text-[11px] ${actionClass(a)}`}
                   >
-                    {tradeLabel(t)}
-                  </div>
-                ))}
-                {m.watchlistChanges?.map((c, j) => (
-                  <div
-                    key={`w${j}`}
-                    data-testid="chat-action"
-                    className="rounded border border-border bg-background px-2 py-1 text-[11px] text-blue"
-                  >
-                    {watchLabel(c)}
+                    {actionLabel(a)}
                   </div>
                 ))}
               </div>
