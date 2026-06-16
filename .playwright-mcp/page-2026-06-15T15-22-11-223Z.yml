@@ -1,0 +1,154 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]: FinAlly
+        - generic [ref=e6]: AI Trading Workstation
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - generic [ref=e9]: Total Value
+          - generic [ref=e10]: $10,000.00
+        - generic [ref=e11]:
+          - generic [ref=e12]: Cash
+          - generic [ref=e13]: $10,000.00
+        - generic "Connected" [ref=e14]:
+          - generic [ref=e16]: Connected
+    - main [ref=e17]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - heading "Watchlist" [level=2] [ref=e21]
+          - generic [ref=e22]:
+            - textbox "Add ticker" [ref=e23]
+            - button "Add" [ref=e24]
+        - table [ref=e26]:
+          - rowgroup [ref=e27]:
+            - row "AAPL $189.92 -0.01% Remove AAPL" [ref=e28] [cursor=pointer]:
+              - cell "AAPL" [ref=e29]
+              - cell "$189.92" [ref=e30]:
+                - generic [ref=e31]: $189.92
+              - cell "-0.01%" [ref=e32]
+              - cell [ref=e33]:
+                - img [ref=e34]
+              - cell "Remove AAPL" [ref=e35]:
+                - button "Remove AAPL" [ref=e36]: ×
+            - row "GOOGL $174.94 -0.01% Remove GOOGL" [ref=e37] [cursor=pointer]:
+              - cell "GOOGL" [ref=e38]
+              - cell "$174.94" [ref=e39]:
+                - generic [ref=e40]: $174.94
+              - cell "-0.01%" [ref=e41]
+              - cell [ref=e42]:
+                - img [ref=e43]
+              - cell "Remove GOOGL" [ref=e44]:
+                - button "Remove GOOGL" [ref=e45]: ×
+            - row "MSFT $420.02 -0.01% Remove MSFT" [ref=e46] [cursor=pointer]:
+              - cell "MSFT" [ref=e47]
+              - cell "$420.02" [ref=e48]:
+                - generic [ref=e49]: $420.02
+              - cell "-0.01%" [ref=e50]
+              - cell [ref=e51]:
+                - img [ref=e52]
+              - cell "Remove MSFT" [ref=e53]:
+                - button "Remove MSFT" [ref=e54]: ×
+            - row "AMZN $185.00 -0.01% Remove AMZN" [ref=e55] [cursor=pointer]:
+              - cell "AMZN" [ref=e56]
+              - cell "$185.00" [ref=e57]:
+                - generic [ref=e58]: $185.00
+              - cell "-0.01%" [ref=e59]
+              - cell [ref=e60]:
+                - img [ref=e61]
+              - cell "Remove AMZN" [ref=e62]:
+                - button "Remove AMZN" [ref=e63]: ×
+            - row "TSLA $249.99 +0.00% Remove TSLA" [ref=e64] [cursor=pointer]:
+              - cell "TSLA" [ref=e65]
+              - cell "$249.99" [ref=e66]:
+                - generic [ref=e67]: $249.99
+              - cell "+0.00%" [ref=e68]
+              - cell [ref=e69]:
+                - img [ref=e70]
+              - cell "Remove TSLA" [ref=e71]:
+                - button "Remove TSLA" [ref=e72]: ×
+            - row "NVDA $799.52 -0.01% Remove NVDA" [ref=e73] [cursor=pointer]:
+              - cell "NVDA" [ref=e74]
+              - cell "$799.52" [ref=e75]:
+                - generic [ref=e76]: $799.52
+              - cell "-0.01%" [ref=e77]
+              - cell [ref=e78]:
+                - img [ref=e79]
+              - cell "Remove NVDA" [ref=e80]:
+                - button "Remove NVDA" [ref=e81]: ×
+            - row "META $500.05 +0.00% Remove META" [ref=e82] [cursor=pointer]:
+              - cell "META" [ref=e83]
+              - cell "$500.05" [ref=e84]:
+                - generic [ref=e85]: $500.05
+              - cell "+0.00%" [ref=e86]
+              - cell [ref=e87]:
+                - img [ref=e88]
+              - cell "Remove META" [ref=e89]:
+                - button "Remove META" [ref=e90]: ×
+            - row "JPM $194.99 -0.01% Remove JPM" [ref=e91] [cursor=pointer]:
+              - cell "JPM" [ref=e92]
+              - cell "$194.99" [ref=e93]:
+                - generic [ref=e94]: $194.99
+              - cell "-0.01%" [ref=e95]
+              - cell [ref=e96]:
+                - img [ref=e97]
+              - cell "Remove JPM" [ref=e98]:
+                - button "Remove JPM" [ref=e99]: ×
+            - row "V $279.88 -0.01% Remove V" [ref=e100] [cursor=pointer]:
+              - cell "V" [ref=e101]
+              - cell "$279.88" [ref=e102]:
+                - generic [ref=e103]: $279.88
+              - cell "-0.01%" [ref=e104]
+              - cell [ref=e105]:
+                - img [ref=e106]
+              - cell "Remove V" [ref=e107]:
+                - button "Remove V" [ref=e108]: ×
+            - row "NFLX $599.99 -0.01% Remove NFLX" [ref=e109] [cursor=pointer]:
+              - cell "NFLX" [ref=e110]
+              - cell "$599.99" [ref=e111]:
+                - generic [ref=e112]: $599.99
+              - cell "-0.01%" [ref=e113]
+              - cell [ref=e114]:
+                - img [ref=e115]
+              - cell "Remove NFLX" [ref=e116]:
+                - button "Remove NFLX" [ref=e117]: ×
+      - generic [ref=e118]:
+        - generic [ref=e119]:
+          - generic [ref=e120]:
+            - heading "AAPL — Price" [level=2] [ref=e122]
+            - generic [ref=e124]: Accumulating price data...
+          - generic [ref=e125]:
+            - heading "Portfolio Value" [level=2] [ref=e127]
+            - generic [ref=e129]: No history yet
+        - generic [ref=e130]:
+          - textbox "Ticker" [ref=e131]: AAPL
+          - textbox "Qty" [ref=e132]
+          - button "Buy" [ref=e133]
+          - button "Sell" [ref=e134]
+        - generic [ref=e135]:
+          - generic [ref=e136]:
+            - heading "Positions" [level=2] [ref=e138]
+            - table [ref=e140]:
+              - rowgroup [ref=e141]:
+                - row "Ticker Qty Avg Cost Price Unrl P&L %" [ref=e142]:
+                  - columnheader "Ticker" [ref=e143]
+                  - columnheader "Qty" [ref=e144]
+                  - columnheader "Avg Cost" [ref=e145]
+                  - columnheader "Price" [ref=e146]
+                  - columnheader "Unrl P&L" [ref=e147]
+                  - columnheader "%" [ref=e148]
+              - rowgroup [ref=e149]:
+                - row "No open positions" [ref=e150]:
+                  - cell "No open positions" [ref=e151]
+          - generic [ref=e152]:
+            - heading "Portfolio Heatmap" [level=2] [ref=e154]
+            - generic [ref=e156]: No positions
+      - generic [ref=e158]:
+        - generic [ref=e159]:
+          - heading "FinAlly AI" [level=2] [ref=e160]
+          - button "Collapse chat" [ref=e161]: −
+        - paragraph [ref=e163]: Ask about your portfolio, request analysis, or have me execute trades.
+        - generic [ref=e164]:
+          - textbox "Message FinAlly..." [ref=e165]
+          - button "Send" [ref=e166]
+  - alert [ref=e167]

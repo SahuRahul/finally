@@ -1,0 +1,14 @@
+# Playwright test runner image. Pinned Playwright version must match the
+# @playwright/test version in package.json.
+FROM mcr.microsoft.com/playwright:v1.49.0-jammy
+
+WORKDIR /work
+
+COPY package.json ./
+RUN npm install
+
+COPY playwright.config.ts ./
+COPY e2e ./e2e
+COPY helpers ./helpers
+
+CMD ["npm", "test"]

@@ -1,0 +1,45 @@
+# E2E test stack: the app container plus a Playwright runner.
+# Keeps browser dependencies out of the production image (PLAN.md Section 12).
+#
+# Usage (from project root):
+#   docker compose -f test/docker-compose.test.yml up --build --abort-on-container-exit --exit-code-from playwright
+#
+# The app runs with LLM_MOCK=true and no MASSIVE_API_KEY (built-in simulator),
+# on a fresh ephemeral SQLite DB each run for determinism. The image sets
+# FINALLY_DB_PATH=/data/finally.db; we tmpfs-mount /data (NOT /app/db, which
+# would shadow the packaged schema.sql) so each run starts clean.
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    environment:
+      LLM_MOCK: "true"
+      MASSIVE_API_KEY: ""
+      # A dummy key so the app boots even though mock mode never calls Claude.
+      CLAUDE_API_KEY: "test-not-used-in-mock"
+    tmpfs:
+      - /data
+    expose:
+      - "8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/api/health').status==200 else 1)"]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+      start_period: 5s
+
+  playwright:
+    build:
+      context: .
+      dockerfile: Dockerfile.playwright
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      BASE_URL: "http://app:8000"
+    volumes:
+      - ./playwright-report:/work/playwright-report
+      - ./test-results:/work/test-results
+    command: ["npm", "test"]

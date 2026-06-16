@@ -1,0 +1,216 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]: FinAlly
+        - generic [ref=e6]: AI Trading Workstation
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - generic [ref=e9]: Total Value
+          - generic [ref=e10]: $10,004.44
+        - generic [ref=e11]:
+          - generic [ref=e12]: Cash
+          - generic [ref=e13]: $4,768.10
+        - generic "Connected" [ref=e14]:
+          - generic [ref=e16]: Connected
+    - main [ref=e17]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - heading "Watchlist" [level=2] [ref=e21]
+          - generic [ref=e22]:
+            - textbox "Add ticker" [ref=e23]
+            - button "Add" [ref=e24]
+        - table [ref=e26]:
+          - rowgroup [ref=e27]:
+            - row "AAPL $190.20 +0.01% Remove AAPL" [ref=e437] [cursor=pointer]:
+              - cell "AAPL" [ref=e29]
+              - cell "$190.20" [ref=e438]:
+                - generic [ref=e31]: $190.20
+              - cell "+0.01%" [ref=e439]
+              - cell [ref=e33]:
+                - img [ref=e34]
+              - cell "Remove AAPL" [ref=e35]:
+                - button "Remove AAPL" [ref=e36]: ×
+            - row "GOOGL $175.32 +0.01% Remove GOOGL" [ref=e440] [cursor=pointer]:
+              - cell "GOOGL" [ref=e38]
+              - cell "$175.32" [ref=e441]:
+                - generic [ref=e40]: $175.32
+              - cell "+0.01%" [ref=e442]
+              - cell [ref=e42]:
+                - img [ref=e43]
+              - cell "Remove GOOGL" [ref=e44]:
+                - button "Remove GOOGL" [ref=e45]: ×
+            - row "MSFT $435.18 +0.00% Remove MSFT" [ref=e443] [cursor=pointer]:
+              - cell "MSFT" [ref=e47]
+              - cell "$435.18" [ref=e444]:
+                - generic [ref=e49]: $435.18
+              - cell "+0.00%" [ref=e445]
+              - cell [ref=e51]:
+                - img [ref=e52]
+              - cell "Remove MSFT" [ref=e53]:
+                - button "Remove MSFT" [ref=e54]: ×
+            - row "AMZN $185.32 +0.01% Remove AMZN" [ref=e446] [cursor=pointer]:
+              - cell "AMZN" [ref=e56]
+              - cell "$185.32" [ref=e447]:
+                - generic [ref=e58]: $185.32
+              - cell "+0.01%" [ref=e448]
+              - cell [ref=e60]:
+                - img [ref=e61]
+              - cell "Remove AMZN" [ref=e62]:
+                - button "Remove AMZN" [ref=e63]: ×
+            - row "TSLA $250.92 -0.00% Remove TSLA" [ref=e449] [cursor=pointer]:
+              - cell "TSLA" [ref=e65]
+              - cell "$250.92" [ref=e450]:
+                - generic [ref=e67]: $250.92
+              - cell "-0.00%" [ref=e451]
+              - cell [ref=e69]:
+                - img [ref=e70]
+              - cell "Remove TSLA" [ref=e71]:
+                - button "Remove TSLA" [ref=e72]: ×
+            - row "NVDA $800.19 +0.02% Remove NVDA" [ref=e452] [cursor=pointer]:
+              - cell "NVDA" [ref=e74]
+              - cell "$800.19" [ref=e453]:
+                - generic [ref=e76]: $800.19
+              - cell "+0.02%" [ref=e454]
+              - cell [ref=e78]:
+                - img [ref=e79]
+              - cell "Remove NVDA" [ref=e80]:
+                - button "Remove NVDA" [ref=e81]: ×
+            - row "META $516.33 +0.01% Remove META" [ref=e455] [cursor=pointer]:
+              - cell "META" [ref=e83]
+              - cell "$516.33" [ref=e456]:
+                - generic [ref=e85]: $516.33
+              - cell "+0.01%" [ref=e457]
+              - cell [ref=e87]:
+                - img [ref=e88]
+              - cell "Remove META" [ref=e89]:
+                - button "Remove META" [ref=e90]: ×
+            - row "JPM $195.06 -0.01% Remove JPM" [ref=e458] [cursor=pointer]:
+              - cell "JPM" [ref=e92]
+              - cell "$195.06" [ref=e459]:
+                - generic [ref=e94]: $195.06
+              - cell "-0.01%" [ref=e460]
+              - cell [ref=e96]:
+                - img [ref=e97]
+              - cell "Remove JPM" [ref=e98]:
+                - button "Remove JPM" [ref=e99]: ×
+            - row "V $269.66 +0.01% Remove V" [ref=e461] [cursor=pointer]:
+              - cell "V" [ref=e101]
+              - cell "$269.66" [ref=e462]:
+                - generic [ref=e103]: $269.66
+              - cell "+0.01%" [ref=e463]
+              - cell [ref=e105]:
+                - img [ref=e106]
+              - cell "Remove V" [ref=e107]:
+                - button "Remove V" [ref=e108]: ×
+            - row "NFLX $601.13 +0.01% Remove NFLX" [ref=e464] [cursor=pointer]:
+              - cell "NFLX" [ref=e110]
+              - cell "$601.13" [ref=e465]:
+                - generic [ref=e112]: $601.13
+              - cell "+0.01%" [ref=e466]
+              - cell [ref=e114]:
+                - img [ref=e115]
+              - cell "Remove NFLX" [ref=e116]:
+                - button "Remove NFLX" [ref=e117]: ×
+      - generic [ref=e118]:
+        - generic [ref=e119]:
+          - generic [ref=e120]:
+            - heading "NFLX — Price" [level=2] [ref=e289]
+            - application [ref=e209]:
+              - generic [ref=e220]:
+                - generic [ref=e471]: $600.90
+                - generic [ref=e473]: $601.05
+                - generic [ref=e475]: $601.20
+                - generic [ref=e477]: $601.35
+          - generic [ref=e125]:
+            - heading "Portfolio Value" [level=2] [ref=e127]
+            - application [ref=e303]:
+              - generic [ref=e313]:
+                - generic [ref=e481]: $10,000.00
+                - generic [ref=e483]: $10,002.00
+                - generic [ref=e485]: $10,004.00
+                - generic [ref=e487]: $10,006.00
+        - generic [ref=e130]:
+          - textbox "Ticker" [ref=e131]: AAPL
+          - textbox "Qty" [ref=e132]
+          - button "Buy" [ref=e133]
+          - button "Sell" [ref=e134]
+        - generic [ref=e135]:
+          - generic [ref=e136]:
+            - heading "Positions" [level=2] [ref=e138]
+            - table [ref=e140]:
+              - rowgroup [ref=e141]:
+                - row "Ticker Qty Avg Cost Price Unrl P&L %" [ref=e142]:
+                  - columnheader "Ticker" [ref=e143]
+                  - columnheader "Qty" [ref=e144]
+                  - columnheader "Avg Cost" [ref=e145]
+                  - columnheader "Price" [ref=e146]
+                  - columnheader "Unrl P&L" [ref=e147]
+                  - columnheader "%" [ref=e148]
+              - rowgroup [ref=e149]:
+                - row "AAPL 5 $190.19 $190.20 -$0.05 -0.01%" [ref=e488] [cursor=pointer]:
+                  - cell "AAPL" [ref=e489]
+                  - cell "5" [ref=e490]
+                  - cell "$190.19" [ref=e491]
+                  - cell "$190.20" [ref=e492]:
+                    - generic [ref=e493]: $190.20
+                  - cell "-$0.05" [ref=e494]
+                  - cell "-0.01%" [ref=e495]
+                - row "META 5 $515.85 $516.33 +$2.15 +0.08%" [ref=e496] [cursor=pointer]:
+                  - cell "META" [ref=e323]
+                  - cell "5" [ref=e324]
+                  - cell "$515.85" [ref=e325]
+                  - cell "$516.33" [ref=e497]:
+                    - generic [ref=e327]: $516.33
+                  - cell "+$2.15" [ref=e498]
+                  - cell "+0.08%" [ref=e499]
+                - row "NFLX 2 $600.43 $601.13 +$1.32 +0.11%" [ref=e500] [cursor=pointer]:
+                  - cell "NFLX" [ref=e331]
+                  - cell "2" [ref=e332]
+                  - cell "$600.43" [ref=e333]
+                  - cell "$601.13" [ref=e501]:
+                    - generic [ref=e335]: $601.13
+                  - cell "+$1.32" [ref=e502]
+                  - cell "+0.11%" [ref=e503]
+                - row "TSLA 2 $250.42 $250.92 +$1.02 +0.20%" [ref=e504] [cursor=pointer]:
+                  - cell "TSLA" [ref=e339]
+                  - cell "2" [ref=e340]
+                  - cell "$250.42" [ref=e341]
+                  - cell "$250.92" [ref=e505]:
+                    - generic [ref=e343]: $250.92
+                  - cell "+$1.02" [ref=e506]
+                  - cell "+0.20%" [ref=e507]
+          - generic [ref=e152]:
+            - heading "Portfolio Heatmap" [level=2] [ref=e154]
+            - img [ref=e348]:
+              - generic [ref=e349]:
+                - generic [ref=e511]:
+                  - generic [ref=e513]: AAPL
+                  - generic [ref=e514]: "-0.01%"
+                - generic [ref=e518]:
+                  - generic [ref=e520]: META
+                  - generic [ref=e521]: +0.08%
+                - generic [ref=e525]:
+                  - generic [ref=e527]: NFLX
+                  - generic [ref=e528]: +0.11%
+                - generic [ref=e532]:
+                  - generic [ref=e534]: TSLA
+                  - generic [ref=e535]: +0.20%
+      - generic [ref=e158]:
+        - generic [ref=e159]:
+          - heading "FinAlly AI" [level=2] [ref=e160]
+          - button "Collapse chat" [ref=e161]: −
+        - generic [ref=e162]:
+          - generic [ref=e372]: buy 2 shares of amazon
+          - generic [ref=e374]: Here is a summary of your portfolio. Ask me to buy or sell shares, or to add or remove tickers from your watchlist.
+          - generic [ref=e376]: buy 2 shares of amzn
+          - generic [ref=e378]: Here is a summary of your portfolio. Ask me to buy or sell shares, or to add or remove tickers from your watchlist.
+          - generic [ref=e380]: hi
+          - generic [ref=e382]: Here is a summary of your portfolio. Ask me to buy or sell shares, or to add or remove tickers from your watchlist.
+          - generic [ref=e384]: advise
+          - generic [ref=e386]: Here is a summary of your portfolio. Ask me to buy or sell shares, or to add or remove tickers from your watchlist.
+        - generic [ref=e164]:
+          - textbox "Message FinAlly..." [ref=e165]
+          - button "Send" [ref=e166]
+  - alert [ref=e167]
+  - generic [ref=e229]: $10,006.00
